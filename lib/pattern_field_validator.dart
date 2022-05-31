@@ -9,10 +9,10 @@ class PatternFieldValidator extends FieldValidatorCore {
   })  : _caseSensitive = caseSensitive,
         super(errorMessage: errorMessage);
 
-  /// The pattern we use to validate emails
+  /// The pattern we use
   final Pattern _pattern;
 
-  /// The pattern we use to validate emails
+  /// If the match should be case sensitive
   final bool _caseSensitive;
 
   @override
