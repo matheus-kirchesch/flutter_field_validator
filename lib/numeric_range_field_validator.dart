@@ -18,9 +18,9 @@ class NumericRangeFieldValidator extends FieldValidatorCore {
   bool isValid(String? field) {
     if (field == null) return false;
 
-    num fieldNumber = num.parse(field);
+    num? fieldNumber = num.tryParse(field);
 
-    if (fieldNumber.isNaN) return false;
+    if (fieldNumber == null) return false;
 
     if (min != null && fieldNumber < min!) {
       return false;
