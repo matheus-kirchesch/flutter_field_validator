@@ -6,10 +6,10 @@ class ConditionFieldValidator extends FieldValidatorCore {
       : super(errorMessage: errorMessage);
 
   /// Will validate based on this condition
-  final bool Function() condition;
+  final bool Function(String? field) condition;
 
   @override
-  bool isValid() {
-    return condition.call();
+  bool isValid(String? field) {
+    return condition.call(field);
   }
 }

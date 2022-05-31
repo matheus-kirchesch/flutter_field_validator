@@ -6,5 +6,5 @@ abstract class FieldValidatorCore {
   final String errorMessage;
 
   /// Return true to validate the field
-  bool isValid();
+  bool isValid(String? field);
 }

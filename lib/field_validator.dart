@@ -2,7 +2,14 @@ import 'package:field_validator/field_validator_core.dart';
 
 /// Takes in Field Validators and validates them
 class FieldValidator {
-  const FieldValidator(this.validators, {this.displayMultipleMessages = false});
+  const FieldValidator(
+    this.validators, {
+    required this.field,
+    this.displayMultipleMessages = false,
+  });
+
+  /// The field we will validate
+  final String? field;
 
   /// All our validators
   final List<FieldValidatorCore> validators;
@@ -16,7 +23,7 @@ class FieldValidator {
 
     for (FieldValidatorCore validator in validators) {
       // We failed to validate this one
-      if (!validator.isValid()) {
+      if (!validator.isValid(field)) {
         if (displayMultipleMessages && message != null && message.isNotEmpty) {
           if (!message.contains(validator.errorMessage)) {
             message += "\n";
