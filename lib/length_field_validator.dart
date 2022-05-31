@@ -4,8 +4,8 @@ import 'package:field_validator/field_validator_core.dart';
 class LengthFieldValidator extends FieldValidatorCore {
   const LengthFieldValidator({
     required String errorMessage,
-    required this.minLength,
-    required this.maxLength,
+    this.minLength,
+    this.maxLength,
   }) : super(errorMessage: errorMessage);
 
   /// The min length if set
