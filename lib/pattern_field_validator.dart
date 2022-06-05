@@ -6,7 +6,9 @@ class PatternFieldValidator extends FieldValidatorCore {
     this._pattern, {
     required String errorMessage,
     bool caseSensitive = true,
+    bool inverse = false,
   })  : _caseSensitive = caseSensitive,
+        _inverse = inverse,
         super(errorMessage: errorMessage);
 
   /// The pattern we use
@@ -15,13 +17,22 @@ class PatternFieldValidator extends FieldValidatorCore {
   /// If the match should be case sensitive
   final bool _caseSensitive;
 
+  /// If true we will validate true for no matches
+  final bool _inverse;
+
   @override
   bool isValid(String? field) {
     if (field == null) return false;
 
-    return RegExp(
+    bool hasMatch = RegExp(
       _pattern.toString(),
       caseSensitive: _caseSensitive,
     ).hasMatch(field);
+
+    if (!_inverse) {
+      return hasMatch;
+    } else {
+      return !hasMatch;
+    }
   }
 }
