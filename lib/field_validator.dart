@@ -22,7 +22,10 @@ class FieldValidator {
   String? validate() {
     String? message;
 
-    for (FieldValidatorCore validator in _validators) {
+    Iterable<FieldValidatorCore> validatorList =
+        _displayMultipleMessages ? _validators : _validators.reversed;
+
+    for (FieldValidatorCore validator in validatorList) {
       if (!validator.isValid(_field)) {
         if (_displayMultipleMessages && message != null && message.isNotEmpty) {
           if (!message.contains(validator.errorMessage)) {
