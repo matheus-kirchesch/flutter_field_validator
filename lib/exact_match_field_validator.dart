@@ -17,7 +17,7 @@ class ExactMatchFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null) return false;
+    if (field == null || field.isEmpty) return true;
 
     if (!_caseSensitive) return _text.toLowerCase() == field.toLowerCase();
 

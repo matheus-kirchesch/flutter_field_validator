@@ -16,13 +16,15 @@ class LengthFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
+    if (field == null || field.isEmpty) return true;
+
     // Check the min length
-    if (minLength != null && field != null && field.length < minLength!) {
+    if (minLength != null && field.length < minLength!) {
       return false;
     }
 
     // Check the max length
-    if (maxLength != null && field != null && field.length > maxLength!) {
+    if (maxLength != null && field.length > maxLength!) {
       return false;
     }
 

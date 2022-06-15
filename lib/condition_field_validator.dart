@@ -10,6 +10,8 @@ class ConditionFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
+    if (field == null || field.isEmpty) return true;
+
     return condition.call(field);
   }
 }

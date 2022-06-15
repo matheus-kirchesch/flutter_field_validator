@@ -22,7 +22,7 @@ class PatternFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null) return false;
+    if (field == null || field.isEmpty) return true;
 
     bool hasMatch = RegExp(
       _pattern.toString(),

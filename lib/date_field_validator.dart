@@ -16,7 +16,7 @@ class DateFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null) return false;
+    if (field == null || field.isEmpty) return true;
 
     DateTime? fieldDate = DateTime.tryParse(field);
 
