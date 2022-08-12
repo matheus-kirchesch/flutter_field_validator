@@ -1,1 +1,1 @@
-A simple field validator that should fit every need.
+A simple field validator.
