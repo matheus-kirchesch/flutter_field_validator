@@ -1,6 +1,6 @@
 name: field_validator
 description: A simple field validator.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/Kirchesch/ComposableRouter
 
 environment:
