@@ -1,4 +1,4 @@
-## A simple field validator
+# A simple field validator
 
 Can be expanded upon fairly easily, you can create your own custom validators by inheriting the FieldValidatorCore.
 
