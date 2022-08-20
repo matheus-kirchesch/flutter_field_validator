@@ -1,23 +1,22 @@
 import 'package:field_validator/field_validator_core.dart';
 
-/// Validates if the field matches the pattern
+/// Validates if the field matches the pattern.
 class PatternFieldValidator extends FieldValidatorCore {
   const PatternFieldValidator(
     this._pattern, {
-    required String errorMessage,
+    required super.errorMessage,
     bool caseSensitive = true,
     bool inverse = false,
   })  : _caseSensitive = caseSensitive,
-        _inverse = inverse,
-        super(errorMessage: errorMessage);
+        _inverse = inverse;
 
-  /// The pattern we use
+  /// The pattern we use.
   final Pattern _pattern;
 
-  /// If the match should be case sensitive
+  /// If the match should be case sensitive.
   final bool _caseSensitive;
 
-  /// If true we will validate true for no matches
+  /// If true we will validate true for no matches.
   final bool _inverse;
 
   @override

@@ -1,17 +1,17 @@
 import 'package:field_validator/field_validator_core.dart';
 
-/// Validates if the field if not empty
+/// Validates if the field if not empty.
 class LengthFieldValidator extends FieldValidatorCore {
   const LengthFieldValidator({
-    required String errorMessage,
+    required super.errorMessage,
     this.minLength,
     this.maxLength,
-  }) : super(errorMessage: errorMessage);
+  });
 
-  /// The min length if set
+  /// The min length if set.
   final int? minLength;
 
-  /// The max length if set
+  /// The max length if set.
   final int? maxLength;
 
   @override

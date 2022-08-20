@@ -1,17 +1,17 @@
 import 'package:field_validator/field_validator_core.dart';
 
-/// Validates a date field
+/// Validates a date field.
 class DateFieldValidator extends FieldValidatorCore {
   const DateFieldValidator({
-    required String errorMessage,
+    required super.errorMessage,
     this.minDate,
     this.maxDate,
-  }) : super(errorMessage: errorMessage);
+  });
 
-  /// Min acceptable date
+  /// Min acceptable date.
   final DateTime? minDate;
 
-  /// Max acceptable date
+  /// Max acceptable date.
   final DateTime? maxDate;
 
   @override

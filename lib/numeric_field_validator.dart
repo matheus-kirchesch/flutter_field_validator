@@ -1,17 +1,17 @@
 import 'package:field_validator/field_validator_core.dart';
 
-/// Validates if the field is numeric and in the specified range
+/// Validates if the field is numeric and in the specified range.
 class NumericFieldValidator extends FieldValidatorCore {
   const NumericFieldValidator({
-    required String errorMessage,
+    required super.errorMessage,
     this.min,
     this.max,
-  }) : super(errorMessage: errorMessage);
+  });
 
-  /// The min value if set
+  /// The min value if set.
   final num? min;
 
-  /// The max value if set
+  /// The max value if set.
   final num? max;
 
   @override
