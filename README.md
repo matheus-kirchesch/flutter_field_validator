@@ -1,8 +1,8 @@
-# A simple field validator
+# A simple field validator for Flutter
 
 Can be expanded upon fairly easily, you can create your own custom validators by inheriting the FieldValidatorCore.
 
-# How to use
+## How to use
 
 It is fairly simple, you instantiate a FieldValidator, pass in the validators and call validate.
 
