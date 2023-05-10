@@ -16,12 +16,12 @@ return TextFormField(
             errorMessage: "Field required",
           ),
           LengthFieldValidator(
-            errorMessage: "Field needs at least 4 characters",
             minLength: 4,
+            errorMessage: "Field needs at least 4 characters",
           ),
           LengthFieldValidator(
-            errorMessage: "Field can have up to 12 characters",
             maxLength: 12,
+            errorMessage: "Field can have up to 12 characters",
           ),
           PatternFieldValidator(
             r"(^[a-z])([a-z0-9-]*)([a-z0-9]$)",
