@@ -1,4 +1,4 @@
-import 'package:field_validator/field_validator_core.dart';
+import 'package:flutter_field_validator/src/field_validator_core.dart';
 
 /// Validates the field based on a specified condition.
 class ConditionFieldValidator extends FieldValidatorCore {

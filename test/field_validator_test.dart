@@ -1,4 +1,4 @@
-import 'package:field_validator/library.dart';
+import 'package:flutter_field_validator/flutter_field_validator.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
