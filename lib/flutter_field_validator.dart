@@ -1,5 +1,3 @@
-// library flutter_field_validator;
-
 export 'src/condition_field_validator.dart';
 export 'src/date_field_validator.dart';
 export 'src/email_field_validator.dart';
