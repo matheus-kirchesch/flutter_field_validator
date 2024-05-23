@@ -19,10 +19,7 @@ class FieldValidator {
   String? validate(String? field) {
     String? message;
 
-    Iterable<FieldValidatorCore> orderedValidators =
-        displayMultipleMessages ? validators : validators.reversed;
-
-    for (FieldValidatorCore validator in orderedValidators) {
+    for (FieldValidatorCore validator in validators) {
       if (validator.isValid(field)) continue;
 
       if (!displayMultipleMessages) {
