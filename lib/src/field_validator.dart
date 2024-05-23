@@ -17,9 +17,12 @@ class FieldValidator {
 
   /// Validate all [validators].
   String? validate(String? field) {
-    String? message;
+    final bool isFieldEmpty = field == null || field.isEmpty;
 
+    String? message;
     for (FieldValidatorCore validator in validators) {
+      if (isFieldEmpty && !validator.validateEmptyField) continue;
+
       if (validator.isValid(field)) continue;
 
       if (!displayMultipleMessages) {
