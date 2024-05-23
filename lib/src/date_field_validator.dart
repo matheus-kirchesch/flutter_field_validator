@@ -6,7 +6,10 @@ class DateFieldValidator extends FieldValidatorCore {
     required super.errorMessage,
     this.minDate,
     this.maxDate,
-  });
+  }) : assert(
+          minDate != null || maxDate != null,
+          'Specify either a [minDate] or a [maxDate]',
+        );
 
   /// Min acceptable date.
   final DateTime? minDate;
@@ -16,19 +19,12 @@ class DateFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null || field.isEmpty) return true;
-
-    DateTime? fieldDate = DateTime.tryParse(field);
-
+    final DateTime? fieldDate = DateTime.tryParse(field ?? '');
     if (fieldDate == null) return false;
 
-    if (minDate != null && fieldDate.isBefore(minDate!)) {
-      return false;
-    }
+    if (minDate != null && fieldDate.isBefore(minDate!)) return false;
 
-    if (maxDate != null && fieldDate.isAfter(maxDate!)) {
-      return false;
-    }
+    if (maxDate != null && fieldDate.isAfter(maxDate!)) return false;
 
     return true;
   }

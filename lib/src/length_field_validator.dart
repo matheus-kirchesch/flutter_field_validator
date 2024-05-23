@@ -6,7 +6,10 @@ class LengthFieldValidator extends FieldValidatorCore {
     required super.errorMessage,
     this.minLength,
     this.maxLength,
-  });
+  }) : assert(
+          minLength != null || maxLength != null,
+          'Specify either a [minLength] or a [maxLength]',
+        );
 
   /// The min length if set.
   final int? minLength;
@@ -16,17 +19,11 @@ class LengthFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null || field.isEmpty) return true;
+    if (field == null) return false;
 
-    // Check the min length
-    if (minLength != null && field.length < minLength!) {
-      return false;
-    }
+    if (minLength != null && field.length < minLength!) return false;
 
-    // Check the max length
-    if (maxLength != null && field.length > maxLength!) {
-      return false;
-    }
+    if (maxLength != null && field.length > maxLength!) return false;
 
     return true;
   }

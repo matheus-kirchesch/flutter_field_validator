@@ -3,23 +3,23 @@ import 'package:flutter_field_validator/src/field_validator_core.dart';
 /// Validates if the field matches the text.
 class ExactMatchFieldValidator extends FieldValidatorCore {
   const ExactMatchFieldValidator(
-    this._text, {
+    this.text, {
     required super.errorMessage,
-    bool caseSensitive = true,
-  }) : _caseSensitive = caseSensitive;
+    this.caseSensitive = true,
+  });
 
   /// Will validate based on this text.
-  final String _text;
+  final String text;
 
   /// The pattern we use to validate.
-  final bool _caseSensitive;
+  final bool caseSensitive;
 
   @override
   bool isValid(String? field) {
-    if (field == null || field.isEmpty) return true;
+    if (!caseSensitive) {
+      return text.toLowerCase() == field?.toLowerCase();
+    }
 
-    if (!_caseSensitive) return _text.toLowerCase() == field.toLowerCase();
-
-    return _text == field;
+    return text == field;
   }
 }

@@ -6,7 +6,10 @@ class NumericFieldValidator extends FieldValidatorCore {
     required super.errorMessage,
     this.min,
     this.max,
-  });
+  }) : assert(
+          min != null || max != null,
+          'Specify either a [min] or a [max]',
+        );
 
   /// The min value if set.
   final num? min;
@@ -16,19 +19,12 @@ class NumericFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null || field.isEmpty) return true;
-
-    num? fieldNumber = num.tryParse(field);
-
+    final num? fieldNumber = num.tryParse(field ?? '');
     if (fieldNumber == null) return false;
 
-    if (min != null && fieldNumber < min!) {
-      return false;
-    }
+    if (min != null && fieldNumber < min!) return false;
 
-    if (max != null && fieldNumber > max!) {
-      return false;
-    }
+    if (max != null && fieldNumber > max!) return false;
 
     return true;
   }

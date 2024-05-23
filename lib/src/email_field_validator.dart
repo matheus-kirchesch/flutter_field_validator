@@ -10,11 +10,9 @@ class EmailFieldValidator extends FieldValidatorCore {
 
   @override
   bool isValid(String? field) {
-    if (field == null || field.isEmpty) return true;
-
     return RegExp(
       _emailPattern.toString(),
       caseSensitive: false,
-    ).hasMatch(field);
+    ).hasMatch(field ?? '');
   }
 }
